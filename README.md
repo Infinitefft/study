@@ -4,4 +4,4 @@
 
 ## Prisma 和 Ent
 
-## PostgreSQLP
+## PostgreSQL
