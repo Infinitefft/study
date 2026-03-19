@@ -10,6 +10,7 @@ function debounce(fn, delay = 300) {
 
   // 返回一个函数，且形成闭包
   return function(...args) {
+    // 这里的 ...args 是在执行打包操作，把所有传入函数的零散参数收集成一个名为 args 的数组，以便后续能完整地传给目标函数 fn。
     if (timer) {   // 如果存在上一个定时器，说明在小于delay时有输入，那么直接清理掉上一个定时器
       clearTimeout(timer);
     }
@@ -26,7 +27,7 @@ function debounce(fn, delay = 300) {
 function throttle(fn, delay = 300) {
   let timer = null;
 
-  return function(...args) {
+  return function(...args) { // 展开，拿到所有的参数
     if (timer) {  // 如果有上一个，不清除定时器，每delay执行一次
       return;  // 直接返回，不会执行下面代码导致新开一个定时器
     }
