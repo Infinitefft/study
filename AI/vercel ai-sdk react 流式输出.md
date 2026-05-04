@@ -233,6 +233,11 @@ export default [
                     // 发送给前端  SSE 核心
                     // 向输出流不断地写入content
                     // ai-sdk 要求的格式
+                    // Vercel 的解决方案：它使用数字前缀来标识数据类型：
+                    // 0: 文本（Text）
+                    // 9: 错误（Error）
+                    // b: 附件（Attachment）
+                    // d: 调试信息（Debug）
                     res.write(`0:${JSON.stringify(content)}\n`);
                   }
                 } catch (err) {
